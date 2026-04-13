@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Your Name | Cybersecurity Professional</title>
+
+<!-- Google Analytics — replace GA_MEASUREMENT_ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','GA_MEASUREMENT_ID');
+</script>
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#0d1117;--bg2:#161b22;--bg3:#21262d;
+    --border:#30363d;--text:#e6edf3;--muted:#8b949e;
+    --accent:#38bdf8;--accent2:#0ea5e9;--green:#3fb950;
+  }
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* Nav */
+  nav{position:fixed;top:0;width:100%;background:rgba(13,17,23,0.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:100;padding:0 2rem;}
+  .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .nav-logo{font-weight:600;font-size:1rem;color:var(--accent);letter-spacing:.05em;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;}
+  .nav-links a{color:var(--muted);font-size:.875rem;transition:color .2s;}
+  .nav-links a:hover{color:var(--text);text-decoration:none;}
+
+  /* Sections */
+  section{max-width:900px;margin:0 auto;padding:5rem 2rem;}
+  h2.section-title{font-size:1.25rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;}
+  h2.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  /* Hero */
+  #hero{padding-top:7rem;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
+  .hero-tag{display:inline-block;background:rgba(56,189,248,.1);color:var(--accent);border:1px solid rgba(56,189,248,.3);border-radius:999px;padding:.25rem .75rem;font-size:.8rem;margin-bottom:1.25rem;}
+  #hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;}
+  #hero h1 span{color:var(--accent);}
+  .hero-sub{font-size:1.125rem;color:var(--muted);max-width:560px;margin-bottom:2rem;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn{padding:.6rem 1.4rem;border-radius:6px;font-size:.9rem;font-weight:500;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:.5rem;}
+  .btn-primary{background:var(--accent2);color:#fff;border:none;}
+  .btn-primary:hover{background:#0284c7;text-decoration:none;color:#fff;}
+  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+  .hero-social{display:flex;gap:1rem;margin-top:2rem;}
+  .hero-social a{color:var(--muted);font-size:.85rem;border:1px solid var(--border);padding:.3rem .8rem;border-radius:6px;transition:.2s;}
+  .hero-social a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+
+  /* About */
+  #about p{color:var(--muted);font-size:1rem;max-width:680px;line-height:1.8;}
+  #about p+p{margin-top:1rem;}
+
+  /* Skills & Certs */
+  .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-bottom:2rem;}
+  .cert-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;transition:.2s;}
+  .cert-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+  .cert-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.25rem;}
+  .cert-name{font-size:.95rem;font-weight:600;color:var(--text);}
+  .cert-status{font-size:.75rem;color:var(--muted);margin-top:.25rem;}
+  .cert-status.earned{color:var(--green);}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;}
+  .skill-tag{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:.4rem .8rem;font-size:.85rem;color:var(--muted);text-align:center;}
+
+  /* Experience */
+  .timeline{position:relative;padding-left:1.5rem;}
+  .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:var(--border);}
+  .job{position:relative;margin-bottom:2.5rem;}
+  .job::before{content:'';position:absolute;left:-1.875rem;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+  .job-meta{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.25rem;}
+  .job-title{font-size:1rem;font-weight:600;}
+  .job-company{color:var(--accent);font-size:.9rem;}
+  .job-dates{color:var(--muted);font-size:.8rem;margin-left:auto;}
+  .job-desc{color:var(--muted);font-size:.9rem;margin-top:.5rem;}
+  .job-desc li{margin-bottom:.3rem;}
+
+  /* Blog */
+  .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;}
+  .post-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.25rem;transition:.2s;cursor:pointer;}
+  .post-card:hover{border-color:var(--accent);}
+  .post-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.5rem;}
+  .post-title{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.5rem;}
+  .post-excerpt{font-size:.85rem;color:var(--muted);line-height:1.5;}
+  .post-date{font-size:.75rem;color:var(--muted);margin-top:.75rem;}
+
+  /* Contact */
+  #contact .contact-wrapper{max-width:560px;}
+  #contact p{color:var(--muted);margin-bottom:1.5rem;}
+  .contact-links{display:flex;flex-direction:column;gap:.75rem;}
+  .contact-item{display:flex;align-items:center;gap:.75rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:.875rem 1.25rem;transition:.2s;}
+  .contact-item:hover{border-color:var(--accent);}
+  .contact-icon{width:18px;height:18px;fill:var(--accent);flex-shrink:0;}
+  .contact-label{font-size:.8rem;color:var(--muted);}
+  .contact-value{font-size:.9rem;font-weight:500;color:var(--text);}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:var(--muted);font-size:.8rem;}
+
+  @media(max-width:600px){
+    .nav-links{display:none;}
+    section{padding:4rem 1.25rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">YN</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-tag">Open to opportunities</div>
+  <h1>Hi, I'm <span>Your Name</span>.<br>I work in cybersecurity.</h1>
+  <p class="hero-sub">Cybersecurity professional focused on threat analysis, vulnerability assessment, and building a stronger security posture — one system at a time.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+    <a href="#experience" class="btn btn-outline">View my work</a>
+  </div>
+  <div class="hero-social">
+    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="mailto:you@email.com">Email</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2 class="section-title">About</h2>
+  <p>I'm a cybersecurity professional with a background in [your field/domain]. Currently working in a cybersecurity-adjacent role while building toward a graduate degree (WGU MSCIA) and a portfolio of industry certifications.</p>
+  <p>My focus areas include threat detection, security analysis, and continuous learning — especially around penetration testing and advanced security architecture. Outside of work, I'm based in the Toledo, Ohio area and stay current through coursework, labs, and certification prep.</p>
+</section>
+
+<!-- Skills & Certs -->
+<section id="skills">
+  <h2 class="section-title">Skills &amp; Certifications</h2>
+
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-label">CompTIA</div>
+      <div class="cert-name">CySA+</div>
+      <div class="cert-status earned">✓ Earned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-label">CompTIA</div>
+      <div class="cert-name">PenTest+</div>
+      <div class="cert-status">In progress</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-label">CompTIA</div>
+      <div class="cert-name">SecurityX (CASP+)</div>
+      <div class="cert-status">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-label">ISC2</div>
+      <div class="cert-name">Certified in Cybersecurity (CC)</div>
+      <div class="cert-status">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-label">WGU</div>
+      <div class="cert-name">M.S. Cybersecurity &amp; Information Assurance</div>
+      <div class="cert-status">Starting Aug 2025</div>
+    </div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-tag">Threat Analysis</div>
+    <div class="skill-tag">Vulnerability Assessment</div>
+    <div class="skill-tag">SIEM / Log Analysis</div>
+    <div class="skill-tag">Penetration Testing</div>
+    <div class="skill-tag">Incident Response</div>
+    <div class="skill-tag">Network Security</div>
+    <div class="skill-tag">Risk Management</div>
+    <div class="skill-tag">Security Frameworks</div>
+    <div class="skill-tag">Python / Scripting</div>
+    <div class="skill-tag">Linux</div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-title">Your Current Role</span>
+        <span class="job-company">Company Name</span>
+        <span class="job-dates">Month Year – Present</span>
+      </div>
+      <ul class="job-desc">
+        <li>Brief description of key responsibilities and impact</li>
+        <li>Notable project or achievement worth highlighting</li>
+        <li>Relevant technical skill or tool used regularly</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-title">Previous Role</span>
+        <span class="job-company">Company Name</span>
+        <span class="job-dates">Month Year – Month Year</span>
+      </div>
+      <ul class="job-desc">
+        <li>Brief description of key responsibilities</li>
+        <li>Notable achievement or skill developed</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Blog -->
+<section id="blog">
+  <h2 class="section-title">Blog</h2>
+  <div class="blog-grid">
+    <div class="post-card">
+      <div class="post-tag">Certifications</div>
+      <div class="post-title">How I passed CySA+ well above the threshold</div>
+      <div class="post-excerpt">A walkthrough of my study approach, resources I used, and what actually showed up on the exam.</div>
+      <div class="post-date">Coming soon</div>
+    </div>
+    <div class="post-card">
+      <div class="post-tag">Pentesting</div>
+      <div class="post-title">Getting started with PenTest+ prep</div>
+      <div class="post-excerpt">My 25-day study plan, the tools I'm practicing with, and what to expect from the exam.</div>
+      <div class="post-date">Coming soon</div>
+    </div>
+    <div class="post-card">
+      <div class="post-tag">Career</div>
+      <div class="post-title">Why I chose WGU MSCIA for my graduate degree</div>
+      <div class="post-excerpt">Breaking down the cost, pacing, and how it maps to real-world certifications and skills.</div>
+      <div class="post-date">Coming soon</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-wrapper">
+    <p>Feel free to reach out — whether it's a professional opportunity, a question, or just to connect.</p>
+    <div class="contact-links">
+      <a href="mailto:you@email.com" class="contact-item" style="text-decoration:none;">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">you@email.com</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-item" style="text-decoration:none;">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">linkedin.com/in/yourprofile</div>
+        </div>
+      </a>
+      <a href="https://github.com/yourusername" target="_blank" class="contact-item" style="text-decoration:none;">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">github.com/yourusername</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built with HTML &amp; hosted on GitHub Pages &nbsp;·&nbsp; &copy; 2026 Your Name</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
